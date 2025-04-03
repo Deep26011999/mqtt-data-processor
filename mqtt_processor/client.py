@@ -1,17 +1,18 @@
 import paho.mqtt.client as mqtt
 from mqtt_processor.db_connector import PostgreSQLConnector
 from mqtt_processor.processor import MessageProcessor
-from mqtt_processor.utils import log_info, log_error  # ✅ Import logging functions
+from mqtt_processor.utils import log_info, log_error
+from mqtt_processor.config import MQTT_CONFIG, DB_CONFIG
 
 class MQTTClient:
-    def __init__(self, broker="localhost", port=1883, topic="sensor/#", db_config=None, process_function=None):
-        self.broker = broker
-        self.port = port
-        self.topic = topic
+    def __init__(self, db_config=DB_CONFIG, process_function=None):
+        # Use dynamic config loading via environment variables or default values
+        self.broker = MQTT_CONFIG.get("broker", "localhost")
+        self.port = MQTT_CONFIG.get("port", 1883)
+        self.topic = MQTT_CONFIG.get("topic", "sensor/#")
         self.db = PostgreSQLConnector(**db_config) if db_config else None
         self.client = mqtt.Client()
 
-        # ✅ Initialize the processor and add user-defined function if provided
         self.processor = MessageProcessor()
         if process_function:
             self.processor.add_transformation(process_function)
@@ -31,7 +32,7 @@ class MQTTClient:
             payload = msg.payload.decode("utf-8")
             log_info(f"📥 Received message: {msg.topic} -> {payload}")
 
-            # ✅ Always process messages through MessageProcessor
+            # ✅ Process messages using the MessageProcessor
             processed_topic, processed_payload = self.processor.process_message(msg.topic, payload)
 
             if self.db:
@@ -42,11 +43,13 @@ class MQTTClient:
             log_error(f"❌ Error processing message: {e}")
 
     def start(self):
+        """ User must call this explicitly to start the client """
         log_info("🚀 Starting MQTT Client...")
         self.client.connect(self.broker, self.port, 60)
         self.client.loop_start()
 
     def stop(self):
+        """ User must call this explicitly to stop the client """
         log_info("🛑 Stopping MQTT Client...")
         self.client.loop_stop()
         self.client.disconnect()
