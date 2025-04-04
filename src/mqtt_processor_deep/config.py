@@ -1,10 +1,14 @@
 import os
+from dotenv import load_dotenv
 
-# ✅ Database Configuration (Default Values)
+# ✅ Load environment variables from a `.env` file if it exists
+load_dotenv()
+
+# ✅ Database Configuration (Uses Env Variables, Defaults for Local Dev)
 DB_CONFIG = {
     "db_name": os.getenv("DB_NAME", "mqtt_db"),
     "user": os.getenv("DB_USER", "postgres"),
-    "password": os.getenv("DB_PASSWORD", "Deep1234"),
+    "password": os.getenv("DB_PASSWORD", ""),  # Removed hardcoded password
     "host": os.getenv("DB_HOST", "localhost"),
     "port": int(os.getenv("DB_PORT", 5432)),
 }

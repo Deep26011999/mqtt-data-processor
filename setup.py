@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="mqtt_processor",  # Package name (should match your import name)
+    name="mqtt_processor_deep",  # Package name (should match your import name)
     version="0.1.0",  # Version number
     author="Deep Shikhar Singh",
     author_email="deepshikharsingh@gmail.com",
@@ -9,7 +9,8 @@ setup(
     long_description=open("README.md").read(),  # Uses README for PyPI description
     long_description_content_type="text/markdown",
     url="https://github.com/Deep26011999/mqtt-data-processor",  # Replace with your GitHub repo
-    packages=find_packages(),  # Automatically finds all Python packages
+    packages=find_packages(where="src"),  # Automatically finds all Python packages
+    package_dir={"": "src"},
     install_requires=[
         "paho-mqtt==2.1.0",
         "psycopg2==2.9.10",
