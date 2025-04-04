@@ -16,6 +16,7 @@ setup(
         "psycopg2==2.9.10",
         "python-dotenv==1.1.0",
         "dnspython==2.7.0",
+        "pytest==7.0.0"
     ],  # Dependencies (should match requirements.txt)
     classifiers=[
         "Programming Language :: Python :: 3",
