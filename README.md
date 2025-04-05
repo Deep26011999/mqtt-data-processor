@@ -1,4 +1,4 @@
-# 📦 mqtt-processor-deep
+# 📦 mqtt-processor
 
 [![PyPI version](https://badge.fury.io/py/mqtt-processor-deep.svg)](https://badge.fury.io/py/mqtt-processor-deep)
 [![Build Status](https://github.com/yourusername/mqtt-data-processor/actions/workflows/python-package.yml/badge.svg)](https://github.com/yourusername/mqtt-data-processor/actions)
