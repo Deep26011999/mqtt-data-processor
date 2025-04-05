@@ -32,7 +32,7 @@ pip install .
 
 🚀 Basic Usage
 
-from mqtt_processor_deep.client import MQTTClient
+from mqtt_processor.client import MQTTClient
 
 client = MQTTClient()
 client.start()
@@ -89,7 +89,7 @@ Copy
 Edit
 mqtt-data-processor/
 ├── src/
-│   └── mqtt_processor_deep/
+│   └── mqtt_processor/
 │       ├── __init__.py
 │       ├── client.py
 │       ├── config.py
