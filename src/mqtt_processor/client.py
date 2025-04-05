@@ -1,8 +1,8 @@
 import paho.mqtt.client as mqtt
-from mqtt_processor_deep.db_connector import PostgreSQLConnector
-from mqtt_processor_deep.processor import MessageProcessor
-from mqtt_processor_deep.utils import log_info, log_error
-from mqtt_processor_deep.config import MQTT_CONFIG, DB_CONFIG
+from mqtt_processor.db_connector import PostgreSQLConnector
+from mqtt_processor.processor import MessageProcessor
+from mqtt_processor.utils import log_info, log_error
+from mqtt_processor.config import MQTT_CONFIG, DB_CONFIG
 
 class MQTTClient:
     def __init__(self, db_config=DB_CONFIG, process_function=None):
