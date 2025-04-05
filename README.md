@@ -19,6 +19,31 @@ A lightweight and extensible Python package for processing MQTT messages and sto
 
 ---
 
+## 🧰 Prerequisites – Mosquitto MQTT Broker Setup
+✅ Install Mosquitto (Windows)
+Download from: https://mosquitto.org/download/
+
+Install with default options (add to PATH recommended).
+
+Verify installation:
+
+mosquitto -v
+🚀 Run Mosquitto Broker
+Start broker manually (if not running as service):
+
+mosquitto -v
+Keep this terminal open.
+
+📤 Publish Message (PowerShell Admin)
+
+& "C:\Program Files\mosquitto\mosquitto_pub.exe" -h localhost -t sensor/temp -m '{\"temperature\": 44}'
+
+📥 Subscribe to Topic (PowerShell Admin)
+
+mosquitto_sub -h localhost -t sensor/temp
+
+---
+
 ## 📦 Installation
 
 From PyPI:
