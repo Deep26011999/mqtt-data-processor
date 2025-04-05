@@ -1,8 +1,8 @@
 from unittest.mock import MagicMock, patch
-from mqtt_processor_deep.client import MQTTClient
+from mqtt_processor.client import MQTTClient
 
-@patch("mqtt_processor_deep.client.log_info")
-@patch("mqtt_processor_deep.client.log_error")
+@patch("mqtt_processor.client.log_info")
+@patch("mqtt_processor.client.log_error")
 def test_on_message_success(mock_log_error, mock_log_info):
     # Create a fake message
     msg = MagicMock()
