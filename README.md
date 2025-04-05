@@ -116,6 +116,6 @@ If you find this project helpful, give it a ⭐ on GitHub!
 
 
 🌍 Links
-📦 PyPI: mqtt-processor-deep
+📦 PyPI: mqtt-processor
 
 🛠️ GitHub Repo
