@@ -24,7 +24,7 @@ A lightweight and extensible Python package for processing MQTT messages and sto
 From PyPI:
 
 ```bash
-pip install mqtt-processor-deep
+pip install mqtt-processor
 
 git clone https://github.com/yourusername/mqtt-data-processor.git
 cd mqtt-data-processor
