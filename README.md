@@ -26,7 +26,7 @@ From PyPI:
 ```bash
 pip install mqtt-processor
 
-git clone https://github.com/yourusername/mqtt-data-processor.git
+git clone https://github.com/Deep26011999/mqtt-data-processor.git
 cd mqtt-data-processor
 pip install .
 
